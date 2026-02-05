@@ -51,4 +51,11 @@ export class Stack<T> implements IStack<T> {
         .update(i - 1, y)
         .cons(this.head());
   }
+
+  toString(isRoot = true): string {
+    if (this.isEmpty()) return "[]";
+    if (this.tail().isEmpty()) return `${isRoot ? "[" : ""}${this.head()}]`;
+    else
+      return `${isRoot ? "[" : ""}${this.head()}, ${this.tail().toString(false)}`;
+  }
 }

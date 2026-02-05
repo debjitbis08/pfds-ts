@@ -67,4 +67,17 @@ describe("Persistent Stack (Okasaki Chapter 2)", () => {
     // Verify original is unchanged (Persistence)
     expect(s.tail().head()).toBe("b");
   });
+
+  it("toString should return a string representation", () => {
+    const s = Stack.empty().cons(4).cons(3).cons(2).cons(1);
+
+    const str = s.toString();
+
+    expect(str).toBe("[1, 2, 3, 4]");
+  });
+
+  it("should handle empty stack string representation", () => {
+    const s = Stack.empty<number>();
+    expect(s.toString()).toBe("[]");
+  });
 });
